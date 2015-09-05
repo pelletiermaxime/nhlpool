@@ -12,5 +12,6 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.sass('app.sass', false, { indentedSyntax: true })
+       .browserify('main.js', 'public/js/bundle.js');
 });
