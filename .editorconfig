@@ -11,4 +11,5 @@ indent_style = space
 indent_size = 4
 
 [*.sass]
+indent_style = space
 indent_size = 2

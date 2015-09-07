@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NHLPool - @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/libs.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
 <div id="layout">
@@ -14,12 +14,30 @@
         <!-- Hamburger icon -->
         <span></span>
     </a>
+    <?php
+    $menuItems = [
+        'Home'  => url('/'),
+    ];
+    if (\Auth::user()) {
+        $menuItems['Logout'] = route('user_logout');
+    } else {
+        $menuItems['Login'] = route('user_login');
+    }
+    ?>
     <div id="menu">
         <div class="pure-menu">
             <a class="pure-menu-heading" href="#">NHL Pool</a>
-
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                @foreach ($menuItems as $menuName => $menuLink)
+                <li class="pure-menu-item">
+                    {{-- ltrim(parse_url($menuLink, PHP_URL_PATH), '/') --}}
+                    @if ($menuLink == Request::url())
+                    <a href="{{ $menuLink }}" class="pure-menu-link pure-menu-selected">{{ $menuName }}</a>
+                    @else
+                    <a href="{{ $menuLink }}" class="pure-menu-link">{{ $menuName }}</a>
+                    @endif
+                </li>
+                @endforeach
             </ul>
         </div>
     </div>
