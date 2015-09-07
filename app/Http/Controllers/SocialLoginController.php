@@ -22,8 +22,16 @@ class SocialLoginController extends Controller
     {
         $userData = Socialite::with($type)->user();
 
+        $email = $userData->email;
+        if (empty($email)) { //Fallback on nickname for twitter
+            $email = $userData->nickname;
+        }
+
+        //TODO: Save email/nickname in login column
+        //TODO: Add displayname and ask for it after login
+        //TODO: Ask for email after login
         $user = User::firstOrNew([
-            'email'    => $userData->email,
+            'email'    => $email,
             'name'     => $userData->name
         ]);
         $user->save();
