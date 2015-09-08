@@ -36,4 +36,12 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * The pools that belong to the user.
+     */
+    public function pools()
+    {
+        return $this->belongsToMany('Nhlpool\Pool');
+    }
 }
