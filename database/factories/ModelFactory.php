@@ -13,9 +13,9 @@
 
 $factory->define(Nhlpool\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'name'           => $faker->name,
+        'email'          => $faker->email,
+        'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];
 });
@@ -23,14 +23,14 @@ $factory->define(Nhlpool\User::class, function (Faker\Generator $faker) {
 $factory->define(Nhlpool\PoolType::class, function (Faker\Generator $faker) {
     return [
         'created_by' => factory(Nhlpool\User::class)->create()->id,
-        'name' => $faker->sentence(3),
+        'name'       => $faker->sentence(3),
     ];
 });
 
 $factory->define(Nhlpool\Pool::class, function (Faker\Generator $faker) {
     return [
         'pool_type_id' => factory(Nhlpool\PoolType::class)->create()->id,
-        'start_date' => $faker->dateTime(),
-        'end_date' => $faker->dateTime(),
+        'start_date'   => $faker->dateTime(),
+        'end_date'     => $faker->dateTime(),
     ];
 });
