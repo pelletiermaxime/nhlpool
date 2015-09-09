@@ -44,4 +44,12 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsToMany('Nhlpool\Pool');
     }
+
+    /**
+     * Get the pool types for the user.
+     */
+    public function pool_types()
+    {
+        return $this->hasMany('Nhlpool\PoolType');
+    }
 }
