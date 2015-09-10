@@ -18,7 +18,7 @@ class Pool extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('Nhlpool\User');
+        return $this->belongsToMany('Nhlpool\User')->withTimestamps();
     }
 
     /**

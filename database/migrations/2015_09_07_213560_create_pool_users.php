@@ -12,7 +12,7 @@ class CreatePoolUsers extends Migration
      */
     public function up()
     {
-        Schema::create('pool_users', function (Blueprint $table) {
+        Schema::create('pool_user', function (Blueprint $table) {
             $table->timestamps();
 
             $table->unsignedInteger('pool_id');
@@ -30,6 +30,6 @@ class CreatePoolUsers extends Migration
      */
     public function down()
     {
-        Schema::drop('pool_users');
+        Schema::drop('pool_user');
     }
 }
