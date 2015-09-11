@@ -42,7 +42,7 @@ class User extends Model implements AuthenticatableContract,
      */
     public function pools()
     {
-        return $this->belongsToMany('Nhlpool\Pool');
+        return $this->belongsToMany('Nhlpool\Pool')->withTimestamps();
     }
 
     /**
