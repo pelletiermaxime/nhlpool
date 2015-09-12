@@ -10,6 +10,7 @@
         ,"laravelcollective/html": "5.1.*"
         ,"predis/predis": "~1.0"
         ,"laravel/socialite": "~2.0"
+        ,"frozennode/administrator": "5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4"
