@@ -24,8 +24,8 @@ class Pool extends Model
     /**
      * Get the pool_type that owns the pool.
      */
-    public function pool_types()
+    public function pool_type()
     {
-        return $this->belongsTo('App\PoolType');
+        return $this->belongsTo('Nhlpool\PoolType');
     }
 }
