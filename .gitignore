@@ -7,3 +7,4 @@ public/css/*.css
 public/css/*.css.map
 public/js/bundle.js
 public/packages/frozennode
+storage/debugbar/
