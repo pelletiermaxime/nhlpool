@@ -17,6 +17,7 @@
     <?php
     $menuItems = [
         'Home'  => url('/'),
+        'Pool'  => route('pool.index'),
     ];
     if (\Auth::user()) {
         $menuItems['Logout'] = route('user_logout');

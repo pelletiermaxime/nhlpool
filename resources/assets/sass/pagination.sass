@@ -1,0 +1,93 @@
+.pagination-section
+  display:block
+  background-color:#f4f4f4
+  float:left
+  padding:0px
+  margin:0px
+  font-size:.8em
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif
+  border:1px solid silver
+  border-radius: 3px
+
+  li a:hover
+    color:#000
+  li.active
+    color:white
+
+  a,
+  a:visited
+    color:#555
+
+  li.active
+    color:white
+    padding:5px
+    width:18px
+    line-height:20px
+    background: radial-gradient(ellipse at center,  rgba(53,121,214,1) 0%,rgba(53,121,214,1) 91%,rgba(27,85,157,1) 100%)
+
+  li.active:hover
+    cursor:default
+    background: radial-gradient(ellipse at center,  rgba(53,121,214,1) 0%,rgba(53,121,214,1) 91%,rgba(27,85,157,1) 100%)
+
+  li:hover
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(196,196,196,1) 100%)
+
+  li a,
+  li.disabled
+    cursor:pointer
+    line-height:20px
+    display:block
+    padding:5px
+    float:left
+    width:18px
+    text-align:center
+
+  ul
+    float:left
+    margin:0px
+    padding:10px
+    list-style:none
+
+  li
+    border:1px solid silver
+    float:left
+    font-weight:700
+    margin:0 2px
+    text-align:center
+    border-radius: 3px
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(214,214,214,1) 100%)
+
+  a
+    text-decoration:none
+
+  .next a:after,
+  .last a:after
+    content:" »"
+
+  .first a:before,
+  .previous a:before
+    content:'« '
+
+  .first a:hover,
+  .previous a:hover,
+  .next a:hover,
+  .last a:hover
+    width: 100px
+    text-indent:0
+    letter-spacing:0px
+
+  .first a
+    text-indent:+6px
+    letter-spacing:10px
+
+  .previous a
+    text-indent:+7px
+    letter-spacing:10px
+
+  .next a
+    text-indent:-159px
+    letter-spacing:10px
+
+  .last a
+    text-indent:-154px
+    letter-spacing:10px
