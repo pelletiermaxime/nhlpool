@@ -8,6 +8,16 @@ class PoolType extends Model
 {
     protected $fillable = ['name', 'created_by'];
 
+    public function getRulesAttribute()
+    {
+        // SELECT COLUMN_JSON(rules) FROM pool_types WHERE id = 1;
+        $rules = \DB::table('pool_types')
+             ->select(\DB::raw('COLUMN_JSON(rules) AS rules'))
+             ->where('id', '=', $this->id)
+             ->get();
+        return json_decode($rules[0]->rules);
+    }
+
     /**
      * Get the pools for the pool type.
      */
@@ -53,16 +63,5 @@ class PoolType extends Model
         \DB::table('pool_types')
             ->where('id', '=', $pool_type_id)
             ->update(['rules' => \DB::raw("COLUMN_CREATE('$stringRules')")]);
-    }
-
-    public function getRules()
-    {
-        $pool_type_id = $this->id;
-        // SELECT COLUMN_JSON(rules) FROM pool_types WHERE id = 1;
-        $rules = \DB::table('pool_types')
-             ->select(\DB::raw('COLUMN_JSON(rules) AS rules'))
-             ->where('id', '=', $pool_type_id)
-             ->get();
-        return json_decode($rules[0]->rules);
     }
 }

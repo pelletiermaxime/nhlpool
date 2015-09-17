@@ -15,7 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/// Social Login
+/*
+|--------------------------------------------------------------------------
+| Login/Logout Routes
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('login', [
     'as' => 'user_login',
     'uses' => 'SocialLoginController@login',
@@ -35,3 +40,5 @@ Route::get('logout', [
     'as' => 'user_logout',
     'uses' => 'SocialLoginController@logout',
 ]);
+
+Route::resource('pool', 'FrontendPoolController');
