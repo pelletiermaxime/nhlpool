@@ -26,7 +26,7 @@ return [
         'pool_types' => [
             'title'        => 'Pool Type',
             'relationship' => 'pool_type',
-            'select'       => "(:table).name",
+            'select'       => '(:table).name',
         ],
     ],
 
