@@ -32,7 +32,7 @@ class SocialLoginController extends Controller
         //TODO: Ask for email after login
         $user = User::firstOrNew([
             'email'    => $email,
-            'name'     => $userData->name
+            'name'     => $userData->name,
         ]);
         $user->save();
 
