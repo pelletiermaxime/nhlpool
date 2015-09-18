@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-
 use Nhlpool\PoolTypes\TeamsScoreType;
 
 class PoolTypeTableSeeder extends Seeder
