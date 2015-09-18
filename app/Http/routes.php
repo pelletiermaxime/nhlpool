@@ -17,21 +17,21 @@ Route::get('/', function () {
 
 /// Social Login
 Route::get('login', [
-    'as' => 'user_login',
+    'as'   => 'user_login',
     'uses' => 'SocialLoginController@login',
 ]);
 
 Route::get('login/{type}', [
-    'as' => 'do_login',
+    'as'   => 'do_login',
     'uses' => 'SocialLoginController@doLogin',
 ]);
 
 Route::get('logged-in/{type}', [
-    'as' => 'user_logged',
+    'as'   => 'user_logged',
     'uses' => 'SocialLoginController@logged_in',
 ]);
 
 Route::get('logout', [
-    'as' => 'user_logout',
+    'as'   => 'user_logout',
     'uses' => 'SocialLoginController@logout',
 ]);

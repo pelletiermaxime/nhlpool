@@ -2,8 +2,8 @@
 
 namespace Nhlpool\Http\Controllers\Auth;
 
-use Nhlpool\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Nhlpool\Http\Controllers\Controller;
 
 class PasswordController extends Controller
 {
