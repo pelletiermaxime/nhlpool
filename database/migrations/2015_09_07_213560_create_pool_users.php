@@ -20,6 +20,7 @@ class CreatePoolUsers extends Migration
 
             $table->foreign('pool_id')->references('id')->on('pools')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['pool_id', 'user_id']);
         });
     }
 
