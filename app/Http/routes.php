@@ -19,7 +19,6 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 | Login/Logout Routes
 |--------------------------------------------------------------------------
-|
 */
 Route::get('login', [
     'as'   => 'user_login',
@@ -41,4 +40,14 @@ Route::get('logout', [
     'uses' => 'SocialLoginController@logout',
 ]);
 
+/*
+|--------------------------------------------------------------------------
+| Frontend Pool Routes
+|--------------------------------------------------------------------------
+*/
 Route::resource('pool', 'FrontendPoolController');
+Route::get('pool/{pool}/join', [
+    'as'         => 'pool.join',
+    'middleware' => 'auth',
+    'uses'       => 'FrontendPoolController@join',
+]);

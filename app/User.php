@@ -52,4 +52,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany('Nhlpool\PoolType');
     }
+
+    public function join_pool($pool_id)
+    {
+        $this->pools()->attach($pool_id);
+    }
 }

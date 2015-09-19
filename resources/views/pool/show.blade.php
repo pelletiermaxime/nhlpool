@@ -11,6 +11,11 @@
         @foreach ($pool->pool_type->rules as $ruleName => $ruleValue)
             <p>{{ $ruleName }}: {{ $ruleValue }}</p>
         @endforeach
+        @can('join-pool', $pool)
+        <a href="{{ route('pool.join', $pool->id) }}">
+            <button class="pure-button pure-button-primary">Join this pool</button>
+        </a>
+        @endcan
     </div>
 </div>
 @endsection

@@ -2,9 +2,10 @@
 
 namespace Nhlpool\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
-
 use Nhlpool\Pool;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class FrontendPoolController extends Controller
 {
@@ -51,8 +52,7 @@ class FrontendPoolController extends Controller
      */
     public function show($id)
     {
-        $pool = Pool::with('pool_type')->find($id);
-        \Debugbar::log($pool);
+        $pool = Pool::with('pool_type')->findOrFail($id);
 
         return view('pool/show')->withPool($pool);
     }
@@ -92,5 +92,21 @@ class FrontendPoolController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Join a pool.
+     *
+     * @param int $id
+     *
+     * @return Response
+     */
+    public function join($id)
+    {
+        $user = Auth::user();
+        $user->join_pool($id);
+
+        Alert::success('You joined this pool sucessfully', 'Sucess!')->autoclose(3000);
+        return back();
     }
 }

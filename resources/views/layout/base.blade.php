@@ -55,6 +55,7 @@
     </div>
 </div>
     <script src="/js/bundle.js"></script>
+    @include('sweet::alert')
     @yield('footer-scripts')
 </body>
 </html>
