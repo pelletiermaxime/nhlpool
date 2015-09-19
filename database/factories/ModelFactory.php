@@ -27,6 +27,10 @@ $factory->define(Nhlpool\PoolType::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(Nhlpool\PoolTypes\TeamsScoreType::class, function (Faker\Generator $faker) {
+    return [];
+});
+
 $factory->define(Nhlpool\Pool::class, function (Faker\Generator $faker) {
     return [
         'pool_type_id' => factory(Nhlpool\PoolType::class)->create()->id,

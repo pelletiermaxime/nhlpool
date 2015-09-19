@@ -7,10 +7,9 @@ class PoolTypeTableSeeder extends Seeder
 {
     public function run()
     {
-        factory(Nhlpool\PoolType::class, 5)->create();
-        $teamScoreType = new TeamsScoreType();
-        $rulesArray = $teamScoreType->getProperties();
-        $poolType = Nhlpool\PoolType::first();
-        $poolType->setRules($rulesArray);
+        $rules = factory(Nhlpool\PoolTypes\TeamsScoreType::class)->make()->getProperties();
+        factory(Nhlpool\PoolType::class, 50)->create()->each(function ($poolType) use($rules) {
+            $poolType->setRules($rules);
+        });
     }
 }
