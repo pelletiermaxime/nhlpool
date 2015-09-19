@@ -10,7 +10,7 @@ class PoolUsersSeeder extends Seeder
         $pools = factory(Nhlpool\Pool::class, 10)->make();
 
         // Insert 50 users randomly into those 10 pools
-        factory(Nhlpool\User::class, 50)->create()->each(function ($u) use($pools) {
+        factory(Nhlpool\User::class, 50)->create()->each(function ($u) use ($pools) {
             $u->pools()->save($pools->random());
         });
     }

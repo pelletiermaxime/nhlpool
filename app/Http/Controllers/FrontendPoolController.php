@@ -107,6 +107,7 @@ class FrontendPoolController extends Controller
         $user->join_pool($id);
 
         Alert::success('You joined this pool sucessfully', 'Sucess!')->autoclose(3000);
+
         return back();
     }
 }

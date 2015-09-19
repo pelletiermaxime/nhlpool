@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('join-pool', function ($user, $pool) {
             // Check if this pool is in the user's pool... pbly not the best way to do this...
             $poolsIDsArray = $user->pools()->get()->pluck('id')->toArray();
+
             return !in_array($pool->id, $poolsIDsArray);
         });
     }
