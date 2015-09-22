@@ -11,6 +11,10 @@ var elixir = require('laravel-elixir');
  |
  */
 
+elixir.config.js.browserify.transformers.push({
+    name: 'debowerify',
+});
+
 elixir(function(mix) {
     mix.sass('app.sass', false, { indentedSyntax: true })
        .sass('libs.sass', 'public/css/libs.css', { indentedSyntax: true })

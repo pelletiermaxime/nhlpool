@@ -1,0 +1,11 @@
+{
+  "name": "nhlpool",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pelletiermaxime/nhlpool",
+  "authors": [
+    "Maxime Pelletier <pelletiermaxime@gmail.com>"
+  ],
+  "dependencies": {
+    "image-picker": "~0.2.4"
+  }
+}
