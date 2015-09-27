@@ -1,5 +1,5 @@
 <?php
-namespace Nhlpool\Data;
+namespace Nhlpool\Remote;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
