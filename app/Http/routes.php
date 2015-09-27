@@ -48,6 +48,5 @@ Route::get('logout', [
 Route::resource('pool', 'FrontendPoolController');
 Route::get('pool/{pool}/join', [
     'as'         => 'pool.join',
-    'middleware' => 'auth',
     'uses'       => 'FrontendPoolController@join',
 ]);

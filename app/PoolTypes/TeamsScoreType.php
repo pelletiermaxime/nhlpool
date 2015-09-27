@@ -13,7 +13,7 @@ class TeamsScoreType
         'shutoutsPoints'     => 5,
     ];
 
-    public function settings()
+    public static function settings()
     {
         return [
             'nb_teams'             => ['type' => 'range', 'attr' => ['min' => 1, 'max' => 30]],

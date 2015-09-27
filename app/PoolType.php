@@ -42,18 +42,13 @@ class PoolType extends Model
     public static function flatten(array $array) : array
     {
         $return = [];
-        array_walk_recursive($array, function($val, $key) use (&$return) {
+        array_walk_recursive($array, function ($val, $key) use (&$return) {
             $return[] = $key;
             $return[] = $val;
         });
         return $return;
     }
 
-    /**
-     * [setRules description]
-     * @param [type] $pool_type_id [description]
-     * @param array  $rules        [description]
-     */
     public function setRules(array $rules)
     {
         $pool_type_id = $this->id;

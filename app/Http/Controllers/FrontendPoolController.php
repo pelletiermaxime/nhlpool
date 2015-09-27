@@ -3,12 +3,23 @@
 namespace Nhlpool\Http\Controllers;
 
 use Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Kris\LaravelFormBuilder\FormBuilderTrait;
 use Nhlpool\Pool;
+use Nhlpool\PoolUser;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class FrontendPoolController extends Controller
 {
+    use FormBuilderTrait;
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['join', 'update']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +65,12 @@ class FrontendPoolController extends Controller
     {
         $pool = Pool::with('pool_type')->findOrFail($id);
 
-        return view('pool/show')->withPool($pool);
+        $form = $this->form('Nhlpool\PoolTypes\TeamsScoreTypeForm', [
+            'method' => 'PUT',
+            'url' => route('pool.update', $id),
+        ], ['pool' => $pool]);
+
+        return view('pool/show')->withPool($pool)->withForm($form);
     }
 
     /**
@@ -77,9 +93,16 @@ class FrontendPoolController extends Controller
      *
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $pool_id)
     {
-        //
+        $teamIDs = $request->input('teams');
+
+        $pooluser = PoolUser::pool($pool_id)->first();
+        $pooluser->setChoices(['teams' => [$teamIDs]]);
+
+        Alert::success('Choices saved successfully', 'Success!')->autoclose(3000);
+
+        return back();
     }
 
     /**
@@ -94,19 +117,11 @@ class FrontendPoolController extends Controller
         //
     }
 
-    /**
-     * Join a pool.
-     *
-     * @param int $id
-     *
-     * @return Response
-     */
-    public function join($id)
+    public function join(int $id) : RedirectResponse
     {
-        $user = Auth::user();
-        $user->join_pool($id);
+        Auth::user()->join_pool($id);
 
-        Alert::success('You joined this pool sucessfully', 'Sucess!')->autoclose(3000);
+        Alert::success('You joined this pool successfully', 'Success!')->autoclose(3000);
 
         return back();
     }
