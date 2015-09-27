@@ -17,6 +17,7 @@ class CreatePoolUsers extends Migration
 
             $table->unsignedInteger('pool_id');
             $table->unsignedInteger('user_id');
+            $table->binary('choices');
 
             $table->foreign('pool_id')->references('id')->on('pools')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
