@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b55fad06b1c662c47652e5198660401c",
+    "hash": "3fd268bddc1926acbde3328b7caa42b7",
     "packages": [
         {
             "name": "ckeditor/ckeditor",
@@ -259,16 +259,16 @@
         },
         {
             "name": "frozennode/administrator",
-            "version": "v5.0.4",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FrozenNode/Laravel-Administrator.git",
-                "reference": "a8becc39573f331b2ed8e640e58263069a9ec784"
+                "reference": "92ca5c4c04f87340360d66b7c395b5b8a93701f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/a8becc39573f331b2ed8e640e58263069a9ec784",
-                "reference": "a8becc39573f331b2ed8e640e58263069a9ec784",
+                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/92ca5c4c04f87340360d66b7c395b5b8a93701f3",
+                "reference": "92ca5c4c04f87340360d66b7c395b5b8a93701f3",
                 "shasum": ""
             },
             "require": {
@@ -308,7 +308,7 @@
                 "laravel",
                 "laravel-administrator"
             ],
-            "time": "2015-09-15 12:28:21"
+            "time": "2015-09-27 17:33:23"
         },
         {
             "name": "guzzle/guzzle",
@@ -3761,7 +3761,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=7.0.0"
     },
     "platform-dev": []
 }
