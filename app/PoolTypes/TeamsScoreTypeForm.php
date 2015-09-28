@@ -23,7 +23,7 @@ class TeamsScoreTypeForm extends Form
         $rules = $pool->pool_type->rules;
         $pooluser = PoolUser::pool($pool->id)->first();
 
-        foreach($this->teams as $team) {
+        foreach ($this->teams as $team) {
             $teamChoices[$team['id']] = [
                 'label'     => "{$team['city']} {$team['name']}",
                 'image-src' => "https://nhlstats.org/images/SVG/{$team['short_name']}.svg",
