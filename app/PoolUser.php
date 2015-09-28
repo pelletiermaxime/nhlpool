@@ -4,7 +4,6 @@ namespace Nhlpool;
 
 use Auth;
 use Illuminate\Database\Eloquent\Model;
-use Nhlpool\PoolType;
 
 class PoolUser extends Model
 {
@@ -19,6 +18,7 @@ class PoolUser extends Model
             ->where('pool_id', '=', $this->pool_id)
             ->where('user_id', '=', $this->user_id)
             ->get();
+
         return json_decode($choices[0]->choices, true);
     }
 
