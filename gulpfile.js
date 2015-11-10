@@ -19,5 +19,6 @@ elixir(function(mix) {
     mix.sass('app.sass', false, { indentedSyntax: true })
        .sass('libs.sass', 'public/css/libs.css', { indentedSyntax: true })
        .browserify(['main.js', 'ui.js'], 'public/js/bundle.js')
+       .browserSync({proxy: 'localhost:8000'})
     ;
 });
