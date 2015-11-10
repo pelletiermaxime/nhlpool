@@ -12,7 +12,7 @@
         <?php $emptyVal = $options['empty_value'] ? ['' => $options['empty_value']] : null; ?>
         <select name="{{ $name }}" {!! Html::attributes($options['attr']) !!}>
         @foreach ($options['choices'] as $value => $optionsAttrs)
-            @if (in_array($value, $options['selected']))
+            @if (isset($options['selected']) && in_array($value, $options['selected']))
             <option data-img-src="{{ $optionsAttrs['image-src'] }}" value="{{ $value }}" selected>
             @else
             <option data-img-src="{{ $optionsAttrs['image-src'] }}" value="{{ $value }}">

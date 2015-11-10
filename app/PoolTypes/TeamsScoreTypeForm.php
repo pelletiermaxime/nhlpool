@@ -43,7 +43,16 @@ class TeamsScoreTypeForm extends Form
             'selected'  => $pooluser['choices'],
         ]);
         if (Auth::check() && Gate::denies('join-pool', $pool)) {
-            $this->add('save', 'submit', ['label' => 'Save choices']);
+            $this->add(
+                'save',
+                'submit',
+                [
+                    'label' => 'Save choices',
+                    'attr'   => [
+                        'class' => 'pure-button pure-button-primary'
+                    ]
+                ]
+            );
         }
     }
 }
