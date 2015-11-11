@@ -35,10 +35,12 @@ return [
      */
     'filters' => [
         'start_date' => [
-            'title' => 'Name',
+            'title' => 'Start date',
+            'type' => 'date',
         ],
         'end_date' => [
-            'title' => 'Created By',
+            'title' => 'End date',
+            'type' => 'date',
         ],
         'pool_types' => [
             'title'        => 'Pool Type',
@@ -50,14 +52,16 @@ return [
      */
     'edit_fields' => [
         'start_date' => [
-            'title' => 'Name',
+            'title' => 'Start date',
+            'type' => 'date',
         ],
         'end_date' => [
-            'title' => 'Created By',
+            'title' => 'End date',
+            'type' => 'date',
         ],
-        'pool_types' => [
-            'title'        => 'Pool Type',
-        ],
+        // 'pool_types' => [
+        //     'title'        => 'Pool Type',
+        // ],
     ],
 
     'sort' => [
