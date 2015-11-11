@@ -32,9 +32,11 @@ $factory->define(Nhlpool\PoolTypes\TeamsScoreType::class, function (Faker\Genera
 });
 
 $factory->define(Nhlpool\Pool::class, function (Faker\Generator $faker) {
+    $start_date = $faker->dateTimeBetween('-200 days', 'now');
+    $end_date = $faker->dateTimeInInterval($start_date, '+30 days');
     return [
         'pool_type_id' => factory(Nhlpool\PoolType::class)->create()->id,
-        'start_date'   => $faker->dateTime(),
-        'end_date'     => $faker->dateTime(),
+        'start_date'   => $start_date,
+        'end_date'     => $end_date,
     ];
 });
